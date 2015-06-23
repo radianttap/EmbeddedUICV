@@ -112,7 +112,7 @@ NSString *const RTUnitLayoutElementCell = @"RTUnitLayoutElementCell";
 	self.shouldRecalculateLayout = self.shouldRecalculateLayout ||
 									(CGRectGetWidth(newBounds) != CGRectGetWidth(self.collectionView.bounds) ||
 									CGRectGetHeight(newBounds) != CGRectGetHeight(self.collectionView.bounds));
-	if (!self.leftAligned) NSLog(@"%s : %@, %@ -> %@", __FUNCTION__, @(self.shouldRecalculateLayout), NSStringFromCGRect(self.collectionView.bounds), NSStringFromCGRect(newBounds));
+	NSLog(@"%@ %s : %@, %@ -> %@", (self.isSource) ? @"LEFT" : @"RIGHT", __FUNCTION__, @(self.shouldRecalculateLayout), NSStringFromCGRect(self.collectionView.bounds), NSStringFromCGRect(newBounds));
 
 	return YES;
 }
@@ -132,7 +132,7 @@ NSString *const RTUnitLayoutElementCell = @"RTUnitLayoutElementCell";
 		self.itemSize = itemSize;
 		self.ACTIVE_DISTANCE = self.itemSize.height;
 		
-		if (!self.leftAligned) NSLog(@"%s, bounds=%@, itemsize=%@", __FUNCTION__, NSStringFromCGRect(currentBounds), NSStringFromCGSize(itemSize));
+		NSLog(@"%@ %s, bounds=%@, itemsize=%@", (self.leftAligned) ? @"LEFT" : @"RIGHT", __FUNCTION__, NSStringFromCGRect(currentBounds), NSStringFromCGSize(itemSize));
 
 		//	cache (possibly) existing layout info, to be used during CV updates
 		if (self.layoutInfo) {

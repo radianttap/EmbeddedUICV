@@ -61,42 +61,8 @@
 
 	//	setup contentInset
 	[self setupContentInset:self.collectionView.bounds.size];
-	
-	if (notification) {
-		RTUnitLayout *l = (RTUnitLayout *)self.collectionView.collectionViewLayout;
-		[l applyTheme:notification];
-		
-		[self.collectionView reloadData];
-		
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[self processCustomScrollRestoreAnimated:NO];
-		});
-	}
 }
 
-- (void)refreshData {
-
-	self.currentIndexPath = nil;
-
-	[self.collectionView.collectionViewLayout invalidateLayout];
-	[self.collectionView reloadData];
-
-	//	scroll to preselected unit
-	[self processCustomStateRestore];
-	[self processCustomScrollRestoreAnimated:YES];
-}
-
-- (void)setTargetController:(BOOL)targetController {
-
-//	if (_targetController == targetController) return;
-	_targetController = targetController;
-	
-	if (!targetController) {
-		[self refreshData];
-	} else {
-		//	target column will be reset during subsequent conversion call
-	}
-}
 
 #pragma mark - View lifecycle
 
@@ -147,7 +113,6 @@
 	
 	if (coordinator) {
 		[coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-
 		} completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
 			[self setupContentInset:size];
 			[self processCustomScrollRestoreAnimated:NO];
