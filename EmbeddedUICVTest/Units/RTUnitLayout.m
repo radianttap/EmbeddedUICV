@@ -74,15 +74,6 @@ NSString *const RTUnitLayoutElementCell = @"RTUnitLayoutElementCell";
 	_cachedBounds = CGRectZero;
 }
 
-- (void)setIsSource:(BOOL)isSource {
-	
-	if (_isSource == isSource) return;
-	_isSource = isSource;
-	
-	self.shouldRecalculateLayout = YES;
-	[self invalidateLayout];
-}
-
 #pragma mark
 
 - (void)calculateTotalContentSize {
