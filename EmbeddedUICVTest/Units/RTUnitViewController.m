@@ -68,6 +68,8 @@
 
 - (void)setupContentInset:(CGSize)size {
 	
+	return;
+	
 	CGFloat itemHeight = 90;
 	UIEdgeInsets oldContentInset = self.collectionView.contentInset;
 	
