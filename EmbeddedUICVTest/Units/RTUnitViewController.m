@@ -46,7 +46,7 @@
 
 - (void)commonInit {
 
-	self.automaticallyAdjustsScrollViewInsets = NO;
+//	self.automaticallyAdjustsScrollViewInsets = NO;
 
 	_userScrolling = NO;
 	_targetController = NO;
@@ -95,19 +95,6 @@
 	l.isSource = !self.targetController;
 	
 	[self applyTheme:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-	
-	//	scroll to preselected unit
-	[self processCustomStateRestore];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-	[super viewDidAppear:animated];
-	
-	[self processCustomScrollRestoreAnimated:YES];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {

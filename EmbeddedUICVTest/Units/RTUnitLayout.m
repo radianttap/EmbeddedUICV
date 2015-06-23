@@ -309,13 +309,13 @@ NSString *const RTUnitLayoutElementCell = @"RTUnitLayoutElementCell";
 		[cell setNeedsLayout];
 	}];
 
-	if (!self.leftAligned) NSLog(@"%s : %@ -> %@", __FUNCTION__, NSStringFromCGRect(oldBounds), NSStringFromCGRect(self.collectionView.bounds));
+//	if (!self.leftAligned) NSLog(@"%s : %@ -> %@", __FUNCTION__, NSStringFromCGRect(oldBounds), NSStringFromCGRect(self.collectionView.bounds));
 	[super prepareForAnimatedBoundsChange:oldBounds];
 }
 
 - (void)finalizeAnimatedBoundsChange {
 
-	if (!self.leftAligned) NSLog(@"%s : %@", __FUNCTION__, NSStringFromCGRect(self.collectionView.bounds));
+//	if (!self.leftAligned) NSLog(@"%s : %@", __FUNCTION__, NSStringFromCGRect(self.collectionView.bounds));
 	[super finalizeAnimatedBoundsChange];
 }
 
@@ -324,7 +324,7 @@ NSString *const RTUnitLayoutElementCell = @"RTUnitLayoutElementCell";
 	RTUnitLayoutAttributes *attr = [self.layoutInfo[RTUnitLayoutElementCell][itemIndexPath] copy];
 	[self applyAttributes:attr viewport:self.collectionView.bounds];
 	
-	if (!self.leftAligned) NSLog(@"%s : %@ frame=%@", __FUNCTION__, itemIndexPath, NSStringFromCGRect(attr.frame));
+//	if (!self.leftAligned) NSLog(@"%s : %@ frame=%@", __FUNCTION__, itemIndexPath, NSStringFromCGRect(attr.frame));
 	return attr;
 }
 
@@ -333,7 +333,7 @@ NSString *const RTUnitLayoutElementCell = @"RTUnitLayoutElementCell";
 	RTUnitLayoutAttributes *attr = [self.cachedLayoutInfo[RTUnitLayoutElementCell][itemIndexPath] copy];
 	[self applyAttributes:attr viewport:self.cachedLayoutBounds];
 	
-	if (!self.leftAligned) NSLog(@"%s : %@ frame=%@", __FUNCTION__, itemIndexPath, NSStringFromCGRect(attr.frame));
+//	if (!self.leftAligned) NSLog(@"%s : %@ frame=%@", __FUNCTION__, itemIndexPath, NSStringFromCGRect(attr.frame));
 	return attr;
 }
 

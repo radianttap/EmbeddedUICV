@@ -46,7 +46,7 @@
 
 - (void)commonInit {
 	
-	self.automaticallyAdjustsScrollViewInsets = YES;
+	self.automaticallyAdjustsScrollViewInsets = NO;
 	_showKeyboardOnAppear = NO;
 }
 
@@ -266,7 +266,6 @@
 	
 	self.navigationItem.hidesBackButton = YES;
 }
-
 
 #pragma mark - Calculator keypad
 

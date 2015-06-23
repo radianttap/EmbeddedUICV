@@ -99,6 +99,7 @@
 }
 
 - (void)applyLayoutAttributes:(RTUnitLayoutAttributes *)layoutAttributes {
+	[super applyLayoutAttributes:layoutAttributes];
 	
 	NSLog(@"%@ %s : frame=%@", (self.leftAligned) ? @"LEFT" : @"RIGHT", __FUNCTION__, NSStringFromCGRect(layoutAttributes.frame));
 	
