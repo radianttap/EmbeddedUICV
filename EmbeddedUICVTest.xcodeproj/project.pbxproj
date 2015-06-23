@@ -73,12 +73,12 @@
 		D01C1A7B1B382B2400D3A6A5 /* EmbeddedUICVTest */ = {
 			isa = PBXGroup;
 			children = (
-				D01C1AA61B382CB900D3A6A5 /* Units */,
-				D01C1A7F1B382B2400D3A6A5 /* AppDelegate.h */,
-				D01C1A801B382B2400D3A6A5 /* AppDelegate.m */,
 				D01C1A821B382B2400D3A6A5 /* ViewController.h */,
 				D01C1A831B382B2400D3A6A5 /* ViewController.m */,
+				D01C1AA61B382CB900D3A6A5 /* Units */,
 				D01C1A881B382B2400D3A6A5 /* Assets.xcassets */,
+				D01C1A7F1B382B2400D3A6A5 /* AppDelegate.h */,
+				D01C1A801B382B2400D3A6A5 /* AppDelegate.m */,
 				D01C1A8A1B382B2400D3A6A5 /* LaunchScreen.storyboard */,
 				D01C1A8D1B382B2400D3A6A5 /* Info.plist */,
 				D01C1A7C1B382B2400D3A6A5 /* Supporting Files */,

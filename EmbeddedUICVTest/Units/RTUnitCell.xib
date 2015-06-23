@@ -14,7 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tYA-XJ-pTj" customClass="RTUnitCell">
+        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" id="tYA-XJ-pTj" customClass="RTUnitCell">
             <rect key="frame" x="0.0" y="0.0" width="160" height="98"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
