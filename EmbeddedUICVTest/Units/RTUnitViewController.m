@@ -102,8 +102,6 @@
 
 - (void)setupContentInset:(CGSize)size {
 	
-	return;
-	
 	CGFloat itemHeight = 90;
 	UIEdgeInsets oldContentInset = self.collectionView.contentInset;
 	
@@ -149,10 +147,10 @@
 	
 	if (coordinator) {
 		[coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-			[self setupContentInset:size];
-			[self processCustomScrollRestoreAnimated:NO];
 
 		} completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+			[self setupContentInset:size];
+			[self processCustomScrollRestoreAnimated:NO];
 		}];
 
 	} else {
