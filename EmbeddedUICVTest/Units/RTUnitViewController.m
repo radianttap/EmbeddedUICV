@@ -130,6 +130,8 @@
 
 - (void)processCustomScrollRestoreAnimated:(BOOL)animated {
 	
+	return;
+	
 	if (!self.currentIndexPath) {
 		return;
 	}
