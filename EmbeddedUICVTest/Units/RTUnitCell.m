@@ -99,7 +99,6 @@
 }
 
 - (void)applyLayoutAttributes:(RTUnitLayoutAttributes *)layoutAttributes {
-	[super applyLayoutAttributes:layoutAttributes];
 	
 	NSLog(@"%@ %s : frame=%@", (self.leftAligned) ? @"LEFT" : @"RIGHT", __FUNCTION__, NSStringFromCGRect(layoutAttributes.frame));
 	
@@ -146,10 +145,9 @@
 }
 
 - (void)layoutSubviews {
-
-	NSLog(@"%@ %s : pre-super: %@", (self.leftAligned) ? @"LEFT" : @"RIGHT", __FUNCTION__, NSStringFromCGRect(self.frame));
 	[super layoutSubviews];
-//	if (!self.leftAligned) NSLog(@"%s : post-super: %@", __FUNCTION__, NSStringFromCGRect(self.frame));
+
+	NSLog(@"%@ %s : %@", (self.leftAligned) ? @"LEFT" : @"RIGHT", __FUNCTION__, NSStringFromCGRect(self.frame));
 }
 
 #pragma mark - Theming
