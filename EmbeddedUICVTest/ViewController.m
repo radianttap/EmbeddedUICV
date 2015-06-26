@@ -285,46 +285,29 @@
 						options:0
 					 animations:^{
 						 NSLog(@"%s", __FUNCTION__);
-
-						 if (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular && self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
-							 // get the visible cells and resize them
-							 NSArray *rightCells = [self.rightColumnController.collectionView visibleCells];
-							 
-							 [rightCells enumerateObjectsUsingBlock:^(RTUnitCell *obj, NSUInteger idx, BOOL *stop) {
-								 CGRect frame = obj.frame;
-								 if (isShown) {
-									 frame.size.width -= self.keypadDimension / 2.0;
-									 
-								 } else {
-									 frame.size.width += self.keypadDimension / 2.0;
-								 }
-								 
-								 obj.frame = frame;
-								 
-							 }];
-							 
-							 NSArray *leftCells = [self.leftColumnController.collectionView visibleCells];
-							 
-							 [leftCells enumerateObjectsUsingBlock:^(RTUnitCell *obj, NSUInteger idx, BOOL *stop) {
-								 CGRect frame = obj.frame;
-								 if (isShown) {
-									 frame.size.width -= self.keypadDimension / 2.0;
-									 
-								 } else {
-									 frame.size.width += self.keypadDimension / 2.0;
-								 }
-								 
-								 obj.frame = frame;
-								 
-							 }];
-						 }
-						 
 						 [self.view layoutIfNeeded];
+						 [self processWorkaroundForCollectionView:self.leftColumnController.collectionView];
+						 [self processWorkaroundForCollectionView:self.rightColumnController.collectionView];
 					 } completion:^(BOOL finished) {
 						 NSLog(@"%s : completed", __FUNCTION__);
 					 }];
 	
 	self.showKeyboardOnAppear = isShown;
 }
+
+- (void)processWorkaroundForCollectionView:(UICollectionView *)collectionView {
+	
+	CGFloat width = collectionView.bounds.size.width;
+
+	NSLog(@"%s : set cells to width=%@", __FUNCTION__, @(width));
+	
+	[collectionView.visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell *obj, NSUInteger idx, BOOL *stop) {
+		CGRect frame = obj.frame;
+		frame.size.width = width;
+		obj.frame = frame;
+	}];
+}
+
+
 
 @end
