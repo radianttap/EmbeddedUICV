@@ -285,6 +285,40 @@
 						options:0
 					 animations:^{
 						 NSLog(@"%s", __FUNCTION__);
+
+						 if (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular && self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
+							 // get the visible cells and resize them
+							 NSArray *rightCells = [self.rightColumnController.collectionView visibleCells];
+							 
+							 [rightCells enumerateObjectsUsingBlock:^(RTUnitCell *obj, NSUInteger idx, BOOL *stop) {
+								 CGRect frame = obj.frame;
+								 if (isShown) {
+									 frame.size.width -= self.keypadDimension / 2.0;
+									 
+								 } else {
+									 frame.size.width += self.keypadDimension / 2.0;
+								 }
+								 
+								 obj.frame = frame;
+								 
+							 }];
+							 
+							 NSArray *leftCells = [self.leftColumnController.collectionView visibleCells];
+							 
+							 [leftCells enumerateObjectsUsingBlock:^(RTUnitCell *obj, NSUInteger idx, BOOL *stop) {
+								 CGRect frame = obj.frame;
+								 if (isShown) {
+									 frame.size.width -= self.keypadDimension / 2.0;
+									 
+								 } else {
+									 frame.size.width += self.keypadDimension / 2.0;
+								 }
+								 
+								 obj.frame = frame;
+								 
+							 }];
+						 }
+						 
 						 [self.view layoutIfNeeded];
 					 } completion:^(BOOL finished) {
 						 NSLog(@"%s : completed", __FUNCTION__);
