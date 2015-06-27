@@ -68,8 +68,6 @@
 
 - (void)setupContentInset:(CGSize)size {
 	
-	return;
-	
 	CGFloat itemHeight = 90;
 	UIEdgeInsets oldContentInset = self.collectionView.contentInset;
 	
@@ -102,9 +100,9 @@
 	
 	if (coordinator) {
 		[coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+			[self processCustomScrollRestoreAnimated:NO];
 		} completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
 			[self setupContentInset:size];
-			[self processCustomScrollRestoreAnimated:NO];
 		}];
 
 	} else {
@@ -116,8 +114,6 @@
 #pragma mark
 
 - (void)processCustomScrollRestoreAnimated:(BOOL)animated {
-	
-	return;
 	
 	if (!self.currentIndexPath) {
 		return;
