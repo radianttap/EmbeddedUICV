@@ -147,6 +147,8 @@
 	if (coordinator) {
 		[coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
 			[self.view layoutIfNeeded];
+			[self processWorkaroundForCollectionView:self.leftColumnController.collectionView];
+			[self processWorkaroundForCollectionView:self.rightColumnController.collectionView];
 		} completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
 			
 		}];

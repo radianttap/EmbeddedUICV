@@ -95,6 +95,18 @@
 	[self applyTheme:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[self processCustomStateRestore];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	
+	[self processCustomScrollRestoreAnimated:animated];
+}
+
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
 	[super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 	
