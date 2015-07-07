@@ -147,8 +147,6 @@
 	if (coordinator) {
 		[coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
 			[self.view layoutIfNeeded];
-			[self processWorkaroundForCollectionView:self.leftColumnController.collectionView];
-			[self processWorkaroundForCollectionView:self.rightColumnController.collectionView];
 		} completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
 			
 		}];
@@ -288,28 +286,11 @@
 					 animations:^{
 						 NSLog(@"%s", __FUNCTION__);
 						 [self.view layoutIfNeeded];
-						 [self processWorkaroundForCollectionView:self.leftColumnController.collectionView];
-						 [self processWorkaroundForCollectionView:self.rightColumnController.collectionView];
 					 } completion:^(BOOL finished) {
 						 NSLog(@"%s : completed", __FUNCTION__);
 					 }];
 	
 	self.showKeyboardOnAppear = isShown;
 }
-
-- (void)processWorkaroundForCollectionView:(UICollectionView *)collectionView {
-	
-	CGFloat width = collectionView.bounds.size.width;
-
-	NSLog(@"%s : set cells to width=%@", __FUNCTION__, @(width));
-	
-	[collectionView.visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell *obj, NSUInteger idx, BOOL *stop) {
-		CGRect frame = obj.frame;
-		frame.size.width = width;
-		obj.frame = frame;
-	}];
-}
-
-
 
 @end
