@@ -41,7 +41,7 @@
 		return NO;
 	}
 	
-	return YES;
+	return [super isEqual:other];
 }
 
 @end
